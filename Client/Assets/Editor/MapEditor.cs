@@ -2,15 +2,26 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MapEditor : MonoBehaviour
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
+public class MapEditor
 {
-    void Start()
-    {
-        
-    }
+#if UNITY_EDITOR
 
-    void Update()
+    // %(Ctrl), #(Shift), &(Alt)
+    [MenuItem("Tools/GenerateMap %#g")]
+    private static void GenerateMap()
     {
+        // if (EditorUtility.DisplayDialog("Hello World", "Create?", "Create", "Cancel"))
+        // {
+        //     new GameObject("Hello World");
+        // }
+        GameObject go = GameObject.Find("Map");
+        if (go == null) return;
         
+        Util.FindChild<Tilemap>(go)
+
     }
+#endif
 }
