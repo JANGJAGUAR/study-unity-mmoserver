@@ -20,7 +20,7 @@ public class MapEditor
         GameObject go = GameObject.Find("Map");
         if (go == null) return;
         
-        Util.FindChild<Tilemap>(go)
+        // Util.FindChild<Tilemap>(go)
 
     }
 #endif
